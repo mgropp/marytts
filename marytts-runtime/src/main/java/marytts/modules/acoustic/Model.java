@@ -109,6 +109,9 @@ public abstract class Model {
 	 */
 	protected Model(FeatureProcessorManager featureManager, String voiceName, InputStream dataStream, String targetAttributeName,
 			String targetAttributeFormat, String featureName, String predictFrom, String applyTo) {
+		if (featureManager == null) {
+			throw new IllegalArgumentException("Feature processor manager can't be null!");
+		}
 		this.featureManager = featureManager;
 		this.voiceName = voiceName;
 		this.dataStream = dataStream;

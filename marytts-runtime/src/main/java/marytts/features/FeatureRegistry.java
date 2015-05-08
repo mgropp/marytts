@@ -182,6 +182,9 @@ public class FeatureRegistry {
 	 *             if one of the features is not known to the manager
 	 */
 	public static TargetFeatureComputer getTargetFeatureComputer(FeatureProcessorManager mgr, String features) {
+		if (mgr == null) {
+			throw new IllegalArgumentException("Feature processor manager can't be null!");
+		}
 		if (features == null) {
 			features = mgr.listFeatureProcessorNames();
 		} else {
